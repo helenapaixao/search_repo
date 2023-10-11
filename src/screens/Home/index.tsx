@@ -46,7 +46,6 @@ function Home() {
       <Container>
       <SearchBar onSearch={handleSearch} />
 
-      </Container>
 
       <div>
         {isLoading ? (
@@ -69,7 +68,9 @@ function Home() {
           onRequestClose={closeModal}
           repository={selectedRepository}
         />
-      )}
+        )}
+      </Container>
+        
     </div>
   );
 }
