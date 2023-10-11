@@ -1,9 +1,15 @@
 import { useState } from "react";
+
+
 import { searchRepositories, Repository } from "../../services/api";
+
+
 import RepositoryDetails from "../../components/RepoDetail";
 import SearchBar from "../../components/Search";
 import RepoList from "../../components/RepoList";
 import Loading from "../../components/Loading";
+
+import {Container} from './styles'
 
 function Home() {
   const [searchResults, setSearchResults] = useState<Repository[]>([]);
@@ -37,7 +43,10 @@ function Home() {
 
   return (
     <div>
+      <Container>
       <SearchBar onSearch={handleSearch} />
+
+      </Container>
 
       <div>
         {isLoading ? (
