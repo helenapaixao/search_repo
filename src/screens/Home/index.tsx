@@ -10,9 +10,9 @@ function Home() {
     useState<Repository | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const handleSearch = async () => {
+  const handleSearch = async (query: string) => {
     try {
-      const results = await searchRepositories(searchTerm);
+      const results = await searchRepositories(query);
       setSearchResults(results);
     } catch (error) {
       console.error("Erro ao buscar repositórios:", error);
@@ -32,12 +32,6 @@ function Home() {
   return (
     <div>
       <SearchBar onSearch={handleSearch} />
-      <input
-        type="text"
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
-      />
-      <button onClick={handleSearch}>Pesquisar</button>
 
       <div>
         <h2>Resultados da pesquisa:</h2>
