@@ -22,12 +22,13 @@ export const Title = styled.h2`
   color: #333;
 `
 
-export const Property = styled.p`
+export const Property = styled.div`
+  display: flex;
+  align-items: center;
   font-weight: bold;
   margin: 12px 0;
   font-family: 'Roboto', sans-serif;
   color: #555;
-  align-items: center;
 `
 
 export const Value = styled.p`
@@ -40,6 +41,7 @@ export const CloseButton = styled.div`
   display: flex;
   justify-content: flex-end;
   margin: 20px;
+  margin-top: 10px;
 `
 
 export const ModalStyle = styled.div`
@@ -63,4 +65,11 @@ export const OverlayStyle = styled.div`
   bottom: 0;
   z-index: 3500;
   background: #212b3277;
+`
+
+export const Icon = styled.div`
+  color: #007bff;
+  font-size: 24px;
+  margin-right: 10px;
+  justify-content: center;
 `

@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import Modal from "react-modal";
 import { Repository } from "../../services/api";
+import { FaTimes, FaStar, FaCode, FaFileAlt,FaFolder } from "react-icons/fa"; 
 import Button from "../Button";
 import {
   Container,
@@ -10,6 +11,7 @@ import {
   CloseButton,
   ModalStyle,
   OverlayStyle,
+  Icon
 } from "./styles";
 
 interface RepositoryDetailsProps {
@@ -44,25 +46,38 @@ const RepositoryDetails = ({
         <Container>
           <Title>Detalhes do Repositório</Title>
           <Property>
+            <Icon>
+              <FaFolder /> 
+            </Icon>
             <strong>Nome:</strong>
           </Property>
           <Value>{repository.name}</Value>
           <Property>
+            <Icon>
+              <FaFileAlt /> 
+            </Icon>
             <strong>Descrição:</strong>
           </Property>
           <Value>
             {repository.description || "Nenhuma descrição disponível."}
           </Value>
           <Property>
+            <Icon>
+              <FaStar />
+            </Icon>
             <strong>Estrelas:</strong>
           </Property>
           <Value>{repository.stargazers_count}</Value>
           <Property>
+            <Icon>
+              <FaCode /> 
+            </Icon>
             <strong>Linguagem:</strong>
           </Property>
           <Value>{repository.language || "Não especificada"}</Value>
           <CloseButton>
             <Button onClick={onRequestClose} disabled={false}>
+              <FaTimes /> 
               Fechar
             </Button>
           </CloseButton>
