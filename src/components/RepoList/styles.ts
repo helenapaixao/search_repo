@@ -15,6 +15,7 @@ export const Text = styled.p`
 
 export const TextRepo = styled.h2`
   color: #0366d6;
+  font-family: 'Roboto';
   font-weight: bold;
   font-size: 18px;
   margin-bottom: 8px;

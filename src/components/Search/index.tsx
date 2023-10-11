@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Input from '../Input';
-import { SearchBarContainer,  Button } from './styles';
+import Button from '../Button';
+import { SearchBarContainer } from './styles';
 
 interface SearchBarProps {
   onSearch: (query: string) => void;
@@ -19,7 +20,7 @@ const SearchBar = ({ onSearch }: SearchBarProps) => {
         type="text"
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
-        placeholder="buscar..."
+        placeholder="Buscar..."
       />
       <Button onClick={handleSearch}>Buscar</Button>
     </SearchBarContainer>

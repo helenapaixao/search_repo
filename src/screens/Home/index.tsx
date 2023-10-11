@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import { searchRepositories, Repository } from "../../services/api";
 import RepositoryDetails from "../../components/RepoDetail";
 import SearchBar from "../../components/Search";
@@ -9,9 +9,10 @@ function Home() {
   const [selectedRepository, setSelectedRepository] =
     useState<Repository | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isLoading] = useState(false);
+const [isLoading, setIsLoading] = useState(false); 
 
   const handleSearch = async (query: string) => {
+     
     try {
       const results = await searchRepositories(query);
       setSearchResults(results);
