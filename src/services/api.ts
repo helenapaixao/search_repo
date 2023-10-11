@@ -1,0 +1,27 @@
+import axios, { AxiosInstance } from 'axios'
+
+export interface Repository {
+  id: number
+  name: string
+  description: string
+}
+
+const api: AxiosInstance = axios.create({
+  baseURL: 'https://api.github.com',
+  headers: {
+    Authorization:
+      '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',
+  },
+})
+
+export async function searchRepositories(query: string): Promise<Repository[]> {
+  try {
+    const response = await api.get(`/search/repositories?q=${query}`)
+    return response.data.items as Repository[]
+  } catch (error) {
+    console.error('Erro ao buscar repositórios:', error)
+    throw error
+  }
+}
+
+export default api
