@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { searchRepositories, Repository } from "../../services/api";
 import RepositoryDetails from "../../components/RepoDetail";
 import SearchBar from "../../components/Search";
+import RepoList from "../../components/RepoList";
 
 function Home() {
-  const [searchTerm, setSearchTerm] = useState<string>("");
   const [searchResults, setSearchResults] = useState<Repository[]>([]);
   const [selectedRepository, setSelectedRepository] =
     useState<Repository | null>(null);
@@ -36,14 +36,10 @@ function Home() {
       <div>
         <h2>Resultados da pesquisa:</h2>
         <ul>
-          {searchResults.map((repository) => (
-            <li
-              key={repository.id}
-              onClick={() => handleRepositoryClick(repository)}
-            >
-              <h3>{repository.name}</h3>
-            </li>
-          ))}
+          <RepoList
+            repos={searchResults}
+            handleRepositoryClick={handleRepositoryClick}
+          />
         </ul>
       </div>
       {selectedRepository && (

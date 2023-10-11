@@ -1,19 +1,23 @@
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
+import { RepoCardContainer, TextLink } from "./styles";
+import { Repository } from "../../services/api";
 
 interface RepoListProps {
-  repos: Array<any>;
+  repos: Repository[];
+  handleRepositoryClick: (repository: Repository) => void;
 }
 
-const RepoList = ({ repos }: RepoListProps) => {
+const RepoList = ({ repos, handleRepositoryClick }: RepoListProps) => {
   return (
     <div>
-      <ul>
-        {repos.map((repo) => (
-          <li key={repo.id}>
-            <Link to={`/repo/${repo.id}`}>{repo.name}</Link>
-          </li>
-        ))}
-      </ul>
+      {repos.map((repo) => (
+        <RepoCardContainer
+          key={repo.id}
+          onClick={() => handleRepositoryClick(repo)}
+        >
+          <Link to={`/repo/${repo.id}`}>{repo.name}</Link>
+        </RepoCardContainer>
+      ))}
     </div>
   );
 };
