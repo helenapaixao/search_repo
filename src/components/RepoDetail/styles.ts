@@ -45,7 +45,6 @@ export const CloseButton = styled.div`
 `
 
 export const ModalStyle = styled.div`
-  min-height: 18rem;
   margin: 2rem;
   display: flex;
   flex-direction: column;
