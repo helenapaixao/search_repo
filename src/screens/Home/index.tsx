@@ -1,13 +1,13 @@
-import { useState } from "react";
-
+import { useState, useEffect } from "react";
+import ReactPaginate from "react-paginate";
 import { searchRepositories, Repository } from "../../services/api";
-
 import RepositoryDetails from "../../components/RepoDetail";
 import SearchBar from "../../components/Search";
 import RepoList from "../../components/RepoList";
 import Loading from "../../components/Loading";
+import Pagination from "../../components/Pagination";
 
-import { Container, Content, Title } from "./styles";
+import { Container, Content, Title, ErrorMessage } from "./styles";
 
 function Home() {
   const [searchResults, setSearchResults] = useState<Repository[]>([]);
@@ -16,15 +16,31 @@ function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [showNoResultsMessage, setShowNoResultsMessage] = useState(false);
+  const [ setPage] = useState(1);
+  const [searchQuery, setSearchQuery] = useState("");
 
-  const handleSearch = async (query: string) => {
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
+
+  const hasPrevious = currentPage > 1;
+  const hasNext = currentPage < totalPages;
+
+  const handlePageChange = (newPage: number) => {
+    setCurrentPage(newPage);
+  };
+
+  const itemsPerPage: number = 10;
+
+  const loadSearchResults = async (page: number, query: string) => {
     setIsLoading(true);
     setShowNoResultsMessage(false);
+
     try {
-      const results = await searchRepositories(query);
-      setSearchResults(results);
-      await new Promise((resolve) => setTimeout(resolve, 2000));
-      if (results.length === 0) {
+      const results = await searchRepositories(query, page, itemsPerPage);
+      setSearchResults(results.items);
+      setTotalPages(Math.ceil(results.total_count / itemsPerPage));
+
+      if (results.items.length === 0) {
         setShowNoResultsMessage(true);
       }
     } catch (error) {
@@ -32,6 +48,10 @@ function Home() {
     } finally {
       setIsLoading(false);
     }
+  };
+
+  const handleSearch = (query: string) => {
+    setSearchQuery(query);
   };
 
   const handleRepositoryClick = (repository: Repository) => {
@@ -44,14 +64,17 @@ function Home() {
     setIsModalOpen(false);
   };
 
+  useEffect(() => {
+    loadSearchResults(currentPage, searchQuery);
+  }, [currentPage, searchQuery]);
+
   return (
     <div>
       <Container>
         <Content>
-          <Title>Busque um repositorio</Title>
-        <SearchBar onSearch={handleSearch} />
+          <Title>Busque um repositório</Title>
+          <SearchBar onSearch={handleSearch} />
 
-        <div>
           {isLoading ? (
             <Loading />
           ) : searchResults.length > 0 ? (
@@ -61,19 +84,25 @@ function Home() {
                 repos={searchResults}
                 handleRepositoryClick={handleRepositoryClick}
               />
+              <Pagination
+                currentPage={currentPage}
+                totalPages={totalPages}
+                onPageChange={handlePageChange}
+                hasPrevious={hasPrevious}
+                hasNext={hasNext}
+              />
             </>
           ) : showNoResultsMessage ? (
-            <p>Nenhum resultado encontrado.</p>
+            <ErrorMessage>Nenhum resultado encontrado.</ErrorMessage>
           ) : null}
-        </div>
-        {selectedRepository && (
-          <RepositoryDetails
-            isModalOpen={isModalOpen}
-            onRequestClose={closeModal}
-            repository={selectedRepository}
-          />
+          {selectedRepository && (
+            <RepositoryDetails
+              isModalOpen={isModalOpen}
+              onRequestClose={closeModal}
+              repository={selectedRepository}
+            />
           )}
-          </Content>
+        </Content>
       </Container>
     </div>
   );

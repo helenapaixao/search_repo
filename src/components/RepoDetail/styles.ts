@@ -33,14 +33,17 @@ export const CloseButton = styled.div`
 `
 export const StyledModal = styled(Modal)`
   overlay: {
-    backgroundcolor: 'rgba(0, 0, 0, 0.5)';
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   content: {
     width: 200px;
     height: 100%;
     margin: auto;
-    borderradius: 8px;
-    boxshadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
     align-items: center;
     justify-content: center;
   }

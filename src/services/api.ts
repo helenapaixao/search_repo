@@ -6,6 +6,11 @@ export interface Repository {
   description: string
 }
 
+export interface GitHubResponse {
+  items: Repository[]
+  total_count: number
+}
+
 const api: AxiosInstance = axios.create({
   baseURL: 'https://api.github.com',
   headers: {
@@ -14,14 +19,15 @@ const api: AxiosInstance = axios.create({
   },
 })
 
-export async function searchRepositories(query: string): Promise<Repository[]> {
+export async function searchRepositories(
+  query: string,
+): Promise<GitHubResponse> {
   try {
     const response = await api.get(`/search/repositories?q=${query}`)
-    return response.data.items as Repository[]
+    return response.data as GitHubResponse
   } catch (error) {
     console.error('Erro ao buscar repositórios:', error)
     throw error
   }
 }
-
 export default api
