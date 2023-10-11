@@ -9,6 +9,7 @@ function Home() {
   const [selectedRepository, setSelectedRepository] =
     useState<Repository | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isLoading] = useState(false);
 
   const handleSearch = async (query: string) => {
     try {
@@ -34,13 +35,19 @@ function Home() {
       <SearchBar onSearch={handleSearch} />
 
       <div>
-        <h2>Resultados da pesquisa:</h2>
-        <ul>
-          <RepoList
-            repos={searchResults}
-            handleRepositoryClick={handleRepositoryClick}
-          />
-        </ul>
+        {isLoading ? (
+          <p>Carregando...</p>
+        ) : searchResults.length > 0 ? (
+          <>
+            <h2>Resultados da pesquisa:</h2>
+            <RepoList
+              repos={searchResults}
+              handleRepositoryClick={handleRepositoryClick}
+            />
+          </>
+          ) : (
+              <div/>
+        )}
       </div>
       {selectedRepository && (
         <RepositoryDetails

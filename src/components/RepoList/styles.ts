@@ -13,8 +13,7 @@ export const Text = styled.p`
   color: #586069;
 `
 
-export const TextLink = styled.a`
-  text-decoration: none;
+export const TextRepo = styled.h2`
   color: #0366d6;
   font-weight: bold;
   font-size: 18px;
