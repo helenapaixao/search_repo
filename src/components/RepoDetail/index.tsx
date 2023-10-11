@@ -1,6 +1,15 @@
+import { useEffect } from "react";
+import Modal from "react-modal";
 import { Repository } from "../../services/api";
 import Button from "../Button";
-import { Container, Title, Property, Value, CloseButton, StyledModal } from "./styles";
+import {
+  Container,
+  Title,
+  Property,
+  Value,
+  CloseButton,
+  StyledModal,
+} from "./styles";
 
 interface RepositoryDetailsProps {
   isModalOpen: boolean;
@@ -13,11 +22,17 @@ const RepositoryDetails = ({
   isModalOpen,
   onRequestClose,
 }: RepositoryDetailsProps) => {
+  useEffect(() => {
+    Modal.setAppElement("#root");
+  }, []);
+
   return (
-    <StyledModal
+    <Modal
       isOpen={isModalOpen}
       onRequestClose={onRequestClose}
-      contentLabel="Detalhes do Repositório"
+      contentElement={(props, children) => (
+        <StyledModal {...props}>{children}</StyledModal>
+      )}
     >
       {repository && (
         <Container>
@@ -29,13 +44,25 @@ const RepositoryDetails = ({
           <Property>
             <strong>Descrição:</strong>
           </Property>
-          <Value>{repository.description || "Nenhuma descrição disponível."}</Value>
+          <Value>
+            {repository.description || "Nenhuma descrição disponível."}
+          </Value>
+          <Property>
+            <strong>Estrelas:</strong>
+          </Property>
+          <Value>{repository.stargazers_count}</Value>
+          <Property>
+            <strong>Linguagem:</strong>
+          </Property>
+          <Value>{repository.language || "Não especificada"}</Value>
           <CloseButton>
-            <Button onClick={onRequestClose}>Fechar</Button>
+            <Button onClick={onRequestClose} disabled={false}>
+              Fechar
+            </Button>
           </CloseButton>
         </Container>
       )}
-    </StyledModal>
+    </Modal>
   );
 };
 

@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 import Modal from 'react-modal'
 
+Modal.setAppElement('#root')
+
 export const Container = styled.div`
   background-color: #fff;
   padding: 20px;
@@ -10,7 +12,7 @@ export const Container = styled.div`
 
 export const Title = styled.h2`
   font-size: 20px;
-  font-size: 'Roboto';
+  font-family: 'Roboto', sans-serif;
   margin-bottom: 10px;
   color: #333;
 `
@@ -31,19 +33,27 @@ export const CloseButton = styled.div`
   justify-content: flex-end;
   margin-top: 20px;
 `
-export const StyledModal = styled(Modal)`
-  overlay: {
-    background-color: rgba(0, 0, 0, 0.5);
+
+export const StyledModal = styled.div`
+  overlay {
+    background-color: #3434;
     display: flex;
+    align-items: flex-start;
     justify-content: center;
-    align-items: center;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: fixed;
   }
-  content: {
-    width: 200px;
-    height: 100%;
-    margin: auto;
-    border-radius: 8px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  content {
+    width: 320px;
+    height: auto;
+    margin: 20px auto 0;
+    border: none;
+    background-color: #3434;
+    display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
   }

@@ -36,7 +36,7 @@ function Home() {
     setShowNoResultsMessage(false);
 
     try {
-      const results = await searchRepositories(query, page, itemsPerPage);
+      const results = await searchRepositories(query);
       setSearchResults(results.items);
       setTotalPages(Math.ceil(results.total_count / itemsPerPage));
 

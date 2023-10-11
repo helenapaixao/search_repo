@@ -5,7 +5,13 @@ export const RepoCardContainer = styled.div`
   border-radius: 6px;
   padding: 16px;
   margin: 16px;
-  background-color: #fff;
+  background-color: #f7f7f7;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
 `
 
 export const Text = styled.p`
@@ -15,8 +21,15 @@ export const Text = styled.p`
 
 export const TextRepo = styled.h2`
   color: #0366d6;
-  font-family: 'Roboto';
+  font-family: 'Roboto', sans-serif;
   font-weight: bold;
   font-size: 18px;
   margin-bottom: 8px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 `
