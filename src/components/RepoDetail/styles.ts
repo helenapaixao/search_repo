@@ -25,12 +25,15 @@ export const Title = styled.h2`
 export const Property = styled.p`
   font-weight: bold;
   margin: 12px 0;
+  font-family: 'Roboto', sans-serif;
   color: #555;
+  align-items: center;
 `
 
 export const Value = styled.p`
   margin: 6px 0;
   color: #666;
+  font-family: 'Roboto', sans-serif;
 `
 
 export const CloseButton = styled.div`

@@ -1,7 +1,12 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-  align-items: center;
+  display: flex;
+  min-height: 100vh;
+
+  @media (max-width: 768px) {
+    align-items: center;
+  }
 `
 
 export const Content = styled.div`
@@ -10,22 +15,31 @@ export const Content = styled.div`
   align-items: center;
   justify-content: center;
   min-height: 100vh;
+  width: 100%;
+
+  @media (max-width: 768px) {
+    align-items: flex-start;
+  }
 `
 
 export const Title = styled.h2`
-  font-size: 24px;
+  font-size: 2rem;
   font-weight: bold;
   color: #333;
-  margin-bottom: 16px;
+  margin-bottom: 1rem;
   font-family: 'Roboto';
-  align-items: center;
-  justify-content: center;
+
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
 `
+
 export const PaginationContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 20px;
+  margin-top: 2rem;
 
   ul {
     list-style: none;
@@ -33,13 +47,13 @@ export const PaginationContainer = styled.div`
     display: flex;
 
     li {
-      margin: 0 5px;
+      margin: 0 1rem;
 
       a {
         text-decoration: none;
         color: #333;
         background-color: #f5f5f5;
-        padding: 10px 15px;
+        padding: 1rem 1.5rem;
         border: 1px solid #ccc;
         border-radius: 5px;
 
@@ -66,7 +80,7 @@ export const PaginationContainer = styled.div`
     .break {
       flex: 0 0 30px;
       border: none;
-      margin: 0 5px;
+      margin: 0 1rem;
     }
 
     .selected {
@@ -92,6 +106,11 @@ export const PaginationContainer = styled.div`
 `
 
 export const ErrorMessage = styled.p`
-  font-size: 20px;
+  font-size: 2rem;
   color: #ff0000;
+  margin-top: 1rem;
+
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+  }
 `
