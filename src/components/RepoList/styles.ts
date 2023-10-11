@@ -1,12 +1,11 @@
 import styled from 'styled-components'
 
 export const RepoCardContainer = styled.div`
-  border: 1px solid #586069;
-
+  border: 1px solid #e1e4e8;
   border-radius: 6px;
-  padding: ${(props) => props.theme.spacing.medium};
-  margin: ${(props) => props.theme.spacing.medium};
-  background-color: #f0f0f0;
+  padding: 16px;
+  margin: 16px;
+  background-color: #f7f7f7;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s;
 
@@ -17,11 +16,11 @@ export const RepoCardContainer = styled.div`
 
 export const Text = styled.p`
   font-size: 14px;
-  color: ${(props) => props.theme.colors.text};
+  color: #586069;
 `
 
 export const TextRepo = styled.h2`
-  color: ${(props) => props.theme.colors.secondary};
+  color: #007bff;
 
   font-family: ${(props) => props.theme.fonts.primary};
   font-weight: bold;
