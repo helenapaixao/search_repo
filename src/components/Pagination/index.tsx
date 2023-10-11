@@ -6,8 +6,8 @@ interface PaginationProps {
   currentPage: number;
   totalPages: number;
   onPageChange: (newPage: number) => void;
-  hasPrevious: boolean;
-  hasNext: boolean;
+  hasPrevious: boolean; 
+  hasNext: boolean; 
 }
 
 const Pagination = ({
@@ -32,7 +32,7 @@ const Pagination = ({
         Anterior
       </Button>
       <PaginationInfo>
-        Página {currentPage} de {totalPages}
+         {currentPage} de {totalPages}
       </PaginationInfo>
       <Button
         onClick={() => hasNext && handlePageChange(currentPage + 1)}

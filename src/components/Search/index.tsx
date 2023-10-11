@@ -20,7 +20,7 @@ const SearchBar = ({ onSearch }: SearchBarProps) => {
         type="text"
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
-        placeholder="Buscar..."
+        placeholder="Digite..."
       />
       <Button onClick={handleSearch}>Buscar</Button>
     </SearchBarContainer>

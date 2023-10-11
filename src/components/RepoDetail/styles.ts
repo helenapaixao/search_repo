@@ -17,7 +17,7 @@ export const Container = styled.div`
 
 export const Title = styled.h2`
   font-size: 24px;
-  font-family: 'Roboto', sans-serif;
+  font-family: ${(props) => props.theme.fonts.primary};
   margin: 16px;
   color: #333;
 `
@@ -27,14 +27,14 @@ export const Property = styled.div`
   align-items: center;
   font-weight: bold;
   margin: 12px 0;
-  font-family: 'Roboto', sans-serif;
+  font-family: ${(props) => props.theme.fonts.primary};
   color: #555;
 `
 
 export const Value = styled.p`
   margin: 6px 0;
   color: #666;
-  font-family: 'Roboto', sans-serif;
+  font-family: ${(props) => props.theme.fonts.primary};
 `
 
 export const CloseButton = styled.div`

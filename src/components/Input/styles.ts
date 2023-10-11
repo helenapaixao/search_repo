@@ -6,6 +6,7 @@ export const Container = styled.input`
   border-radius: 4px;
   margin-right: 8px;
   font-size: 16px;
+  font-family: ${(props) => props.theme.fonts.primary};
 
   &::placeholder {
     color: #aaa;

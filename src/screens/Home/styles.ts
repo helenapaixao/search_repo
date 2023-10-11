@@ -27,7 +27,7 @@ export const Title = styled.h2`
   font-weight: bold;
   color: #333;
   margin-bottom: 1rem;
-  font-family: 'Roboto';
+  font-family: ${(props) => props.theme.fonts.primary};
 
   @media (max-width: 768px) {
     font-size: 1.5rem;
@@ -109,6 +109,7 @@ export const ErrorMessage = styled.p`
   font-size: 2rem;
   color: #ff0000;
   margin-top: 1rem;
+  font-family: ${(props) => props.theme.fonts.primary};
 
   @media (max-width: 768px) {
     font-size: 1.5rem;

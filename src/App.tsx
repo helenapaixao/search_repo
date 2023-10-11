@@ -1,11 +1,12 @@
-import React from 'react';
+import { ThemeProvider } from "styled-components";
+import theme from "../src/global/theme";
 import Routes from './routes';
 
 const App = () => {
   return (
-    <div>
+     <ThemeProvider theme={theme}>
       <Routes />
-    </div>
+     </ThemeProvider>
   );
 };
 

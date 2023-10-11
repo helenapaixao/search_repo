@@ -21,7 +21,7 @@ export const Text = styled.p`
 
 export const TextRepo = styled.h2`
   color: #0366d6;
-  font-family: 'Roboto', sans-serif;
+  font-family: ${(props) => props.theme.fonts.primary};
   font-weight: bold;
   font-size: 18px;
   margin-bottom: 8px;

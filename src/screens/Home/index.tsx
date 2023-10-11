@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import ReactPaginate from "react-paginate";
 import { searchRepositories, Repository } from "../../services/api";
 import RepositoryDetails from "../../components/RepoDetail";
 import SearchBar from "../../components/Search";
@@ -16,7 +15,6 @@ function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [showNoResultsMessage, setShowNoResultsMessage] = useState(false);
-  const [ setPage] = useState(1);
   const [searchQuery, setSearchQuery] = useState("");
 
   const [currentPage, setCurrentPage] = useState(1);
