@@ -8,7 +8,8 @@ import {
   Property,
   Value,
   CloseButton,
-  StyledModal,
+  ModalStyle,
+  OverlayStyle,
 } from "./styles";
 
 interface RepositoryDetailsProps {
@@ -30,8 +31,13 @@ const RepositoryDetails = ({
     <Modal
       isOpen={isModalOpen}
       onRequestClose={onRequestClose}
+      className="_"
+      overlayClassName="_"
       contentElement={(props, children) => (
-        <StyledModal {...props}>{children}</StyledModal>
+        <ModalStyle {...props}>{children}</ModalStyle>
+      )}
+      overlayElement={(props, contentElement) => (
+        <OverlayStyle {...props}>{contentElement}</OverlayStyle>
       )}
     >
       {repository && (

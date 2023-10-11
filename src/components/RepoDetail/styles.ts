@@ -4,57 +4,60 @@ import Modal from 'react-modal'
 Modal.setAppElement('#root')
 
 export const Container = styled.div`
-  background-color: #fff;
-  padding: 20px;
+  background-color: #f8f8f8;
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `
 
 export const Title = styled.h2`
-  font-size: 20px;
+  font-size: 24px;
   font-family: 'Roboto', sans-serif;
-  margin-bottom: 10px;
+  margin: 16px;
   color: #333;
 `
 
 export const Property = styled.p`
   font-weight: bold;
-  margin: 10px 0;
+  margin: 12px 0;
   color: #555;
 `
 
 export const Value = styled.p`
-  margin: 5px 0;
+  margin: 6px 0;
   color: #666;
 `
 
 export const CloseButton = styled.div`
   display: flex;
   justify-content: flex-end;
-  margin-top: 20px;
+  margin: 20px;
 `
 
-export const StyledModal = styled.div`
-  overlay {
-    background-color: #3434;
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    position: fixed;
-  }
-  content {
-    width: 320px;
-    height: auto;
-    margin: 20px auto 0;
-    border: none;
-    background-color: #3434;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
+export const ModalStyle = styled.div`
+  min-height: 18rem;
+  margin: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: white;
+  border-radius: 0.25rem;
+`
+
+export const OverlayStyle = styled.div`
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 3500;
+  background: #212b3277;
 `
