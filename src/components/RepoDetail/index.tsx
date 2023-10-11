@@ -1,7 +1,6 @@
-import Modal from "react-modal";
 import { Repository } from "../../services/api";
 import Button from "../Button";
-import { Container, Title, Property, Value, CloseButton } from "./styles";
+import { Container, Title, Property, Value, CloseButton, StyledModal } from "./styles";
 
 interface RepositoryDetailsProps {
   isModalOpen: boolean;
@@ -15,7 +14,7 @@ const RepositoryDetails = ({
   onRequestClose,
 }: RepositoryDetailsProps) => {
   return (
-    <Modal
+    <StyledModal
       isOpen={isModalOpen}
       onRequestClose={onRequestClose}
       contentLabel="Detalhes do Repositório"
@@ -36,7 +35,7 @@ const RepositoryDetails = ({
           </CloseButton>
         </Container>
       )}
-    </Modal>
+    </StyledModal>
   );
 };
 

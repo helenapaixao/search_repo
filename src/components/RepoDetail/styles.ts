@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import Modal from 'react-modal'
 
 export const Container = styled.div`
   background-color: #fff;
@@ -29,4 +30,18 @@ export const CloseButton = styled.div`
   display: flex;
   justify-content: flex-end;
   margin-top: 20px;
+`
+export const StyledModal = styled(Modal)`
+  overlay: {
+    backgroundcolor: 'rgba(0, 0, 0, 0.5)';
+  }
+  content: {
+    width: 200px;
+    height: 100%;
+    margin: auto;
+    borderradius: 8px;
+    boxshadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    align-items: center;
+    justify-content: center;
+  }
 `

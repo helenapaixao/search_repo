@@ -7,7 +7,7 @@ import SearchBar from "../../components/Search";
 import RepoList from "../../components/RepoList";
 import Loading from "../../components/Loading";
 
-import { Container } from "./styles";
+import { Container, Content, Title } from "./styles";
 
 function Home() {
   const [searchResults, setSearchResults] = useState<Repository[]>([]);
@@ -47,6 +47,8 @@ function Home() {
   return (
     <div>
       <Container>
+        <Content>
+          <Title>Busque um repositorio</Title>
         <SearchBar onSearch={handleSearch} />
 
         <div>
@@ -54,7 +56,7 @@ function Home() {
             <Loading />
           ) : searchResults.length > 0 ? (
             <>
-              <h2>Resultados da pesquisa:</h2>
+              <Title>Resultados da pesquisa:</Title>
               <RepoList
                 repos={searchResults}
                 handleRepositoryClick={handleRepositoryClick}
@@ -70,7 +72,8 @@ function Home() {
             onRequestClose={closeModal}
             repository={selectedRepository}
           />
-        )}
+          )}
+          </Content>
       </Container>
     </div>
   );
