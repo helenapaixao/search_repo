@@ -1,15 +1,13 @@
 import { useState } from "react";
 
-
 import { searchRepositories, Repository } from "../../services/api";
-
 
 import RepositoryDetails from "../../components/RepoDetail";
 import SearchBar from "../../components/Search";
 import RepoList from "../../components/RepoList";
 import Loading from "../../components/Loading";
 
-import {Container} from './styles'
+import { Container } from "./styles";
 
 function Home() {
   const [searchResults, setSearchResults] = useState<Repository[]>([]);
@@ -17,13 +15,18 @@ function Home() {
     useState<Repository | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [showNoResultsMessage, setShowNoResultsMessage] = useState(false);
 
   const handleSearch = async (query: string) => {
     setIsLoading(true);
+    setShowNoResultsMessage(false);
     try {
       const results = await searchRepositories(query);
       setSearchResults(results);
       await new Promise((resolve) => setTimeout(resolve, 2000));
+      if (results.length === 0) {
+        setShowNoResultsMessage(true);
+      }
     } catch (error) {
       console.error("Erro ao buscar repositórios:", error);
     } finally {
@@ -44,33 +47,31 @@ function Home() {
   return (
     <div>
       <Container>
-      <SearchBar onSearch={handleSearch} />
+        <SearchBar onSearch={handleSearch} />
 
-
-      <div>
-        {isLoading ? (
-          <Loading />
-        ) : searchResults.length > 0 ? (
-          <>
-            <h2>Resultados da pesquisa:</h2>
-            <RepoList
-              repos={searchResults}
-              handleRepositoryClick={handleRepositoryClick}
-            />
-          </>
-        ) : (
-          <div />
-        )}
-      </div>
-      {selectedRepository && (
-        <RepositoryDetails
-          isModalOpen={isModalOpen}
-          onRequestClose={closeModal}
-          repository={selectedRepository}
-        />
+        <div>
+          {isLoading ? (
+            <Loading />
+          ) : searchResults.length > 0 ? (
+            <>
+              <h2>Resultados da pesquisa:</h2>
+              <RepoList
+                repos={searchResults}
+                handleRepositoryClick={handleRepositoryClick}
+              />
+            </>
+          ) : showNoResultsMessage ? (
+            <p>Nenhum resultado encontrado.</p>
+          ) : null}
+        </div>
+        {selectedRepository && (
+          <RepositoryDetails
+            isModalOpen={isModalOpen}
+            onRequestClose={closeModal}
+            repository={selectedRepository}
+          />
         )}
       </Container>
-        
     </div>
   );
 }
