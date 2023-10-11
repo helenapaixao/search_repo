@@ -9,7 +9,7 @@ export const Container = styled.div`
 
 export const Spinner = styled.div`
   border: 4px solid rgba(0, 0, 0, 0.3);
-  border-top: 4px solid #0074d9;
+  border-top: 4px solid #007bff;
   border-radius: 50%;
   width: 40px;
   height: 40px;

@@ -2,13 +2,13 @@ import styled from 'styled-components'
 
 export const Container = styled.input`
   padding: 8px;
-  border: 1px solid #ccc;
+  border: 1px solid #586069;
   border-radius: 4px;
   margin-right: 8px;
   font-size: 16px;
   font-family: ${(props) => props.theme.fonts.primary};
 
   &::placeholder {
-    color: #aaa;
+    color: ${(props) => props.theme.colors.text};
   }
 `

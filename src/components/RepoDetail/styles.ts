@@ -18,8 +18,8 @@ export const Container = styled.div`
 export const Title = styled.h2`
   font-size: 24px;
   font-family: ${(props) => props.theme.fonts.primary};
-  margin: 16px;
-  color: #333;
+  margin: ${(props) => props.theme.spacing.medium};
+  color: ${(props) => props.theme.colors.text};
 `
 
 export const Property = styled.div`
@@ -28,12 +28,12 @@ export const Property = styled.div`
   font-weight: bold;
   margin: 12px 0;
   font-family: ${(props) => props.theme.fonts.primary};
-  color: #555;
+  color: ${(props) => props.theme.colors.text};
 `
 
 export const Value = styled.p`
   margin: 6px 0;
-  color: #666;
+  color: ${(props) => props.theme.colors.text};
   font-family: ${(props) => props.theme.fonts.primary};
 `
 
