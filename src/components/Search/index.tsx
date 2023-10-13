@@ -4,14 +4,15 @@ import Button from '../Button';
 import { SearchBarContainer } from './styles';
 
 interface SearchBarProps {
-  onSearch: (query: string) => void;
+  onSearch: (query: string) => void; // Callback to handle a search query
 }
 
 const SearchBar = ({ onSearch }: SearchBarProps) => {
   const [searchQuery, setSearchQuery] = useState('');
 
+  // Handle the search button click
   const handleSearch = () => {
-    onSearch(searchQuery);
+    onSearch(searchQuery); // Trigger the search callback with the search query
   };
 
   return (
@@ -22,6 +23,7 @@ const SearchBar = ({ onSearch }: SearchBarProps) => {
         onChange={(e) => setSearchQuery(e.target.value)}
         placeholder="Digite..."
       />
+       {/* Search button that triggers the search when clicked */}
       <Button onClick={handleSearch}>Buscar</Button>
     </SearchBarContainer>
   );

@@ -16,7 +16,7 @@ test("The correct rendering of pagination.", () => {
   expect(pageInfo).toBeInTheDocument();
 });
 
-test("Desabilitar botões corretamente", () => {
+test("Disable the previous button when there is no previous page", () => {
   const { getByRole } = render(
     <Pagination
       currentPage={1}
@@ -34,7 +34,7 @@ test("Desabilitar botões corretamente", () => {
   expect(nextButton).toBeDisabled();
 });
 
-test("Chamar a função onPageChange corretamente", () => {
+test("Call the onPageChange function with the new page number when a pagination button is clicked", () => {
   const onPageChange = jest.fn();
   const { getByRole } = render(
     <Pagination

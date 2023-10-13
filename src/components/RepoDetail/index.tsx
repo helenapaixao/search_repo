@@ -14,10 +14,11 @@ import {
   Icon
 } from "./styles";
 
+// Define the props for the RepositoryDetails component
 interface RepositoryDetailsProps {
-  isModalOpen: boolean;
-  onRequestClose: () => void;
-  repository: Repository | null;
+  isModalOpen: boolean; // Indicates if the modal is open
+  onRequestClose: () => void; // Callback to close the modal
+  repository: Repository | null; // The repository to display details 
 }
 
 const RepositoryDetails = ({
@@ -25,6 +26,7 @@ const RepositoryDetails = ({
   isModalOpen,
   onRequestClose,
 }: RepositoryDetailsProps) => {
+   // Set the app element for the Modal component
   useEffect(() => {
     Modal.setAppElement("#root");
   }, []);
