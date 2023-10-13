@@ -7,7 +7,7 @@ describe("SearchBar", () => {
       <SearchBar onSearch={() => {}} />
     );
 
-    const searchInput = getByPlaceholderText("Buscar...");
+    const searchInput = getByPlaceholderText("Digite...");
     const searchButton = getByText("Buscar");
 
     expect(searchInput).toBeInTheDocument();
@@ -26,7 +26,7 @@ describe("SearchBar", () => {
 
   it("should update the searchQuery when the input value changes", () => {
     const { getByPlaceholderText } = render(<SearchBar onSearch={() => {}} />);
-    const searchInput = getByPlaceholderText("Buscar...") as HTMLInputElement;
+    const searchInput = getByPlaceholderText("Digite...") as HTMLInputElement;
 
     fireEvent.change(searchInput, { target: { value: "search term" } });
 

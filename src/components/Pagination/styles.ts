@@ -8,5 +8,5 @@ export const Container = styled.div`
 `
 
 export const PaginationInfo = styled.span`
-  font-size: ${(props) => props.theme.spacing.medium};
+  font-size: 16px;
 `

@@ -18,7 +18,7 @@ export const Container = styled.div`
 export const Title = styled.h2`
   font-size: 24px;
   font-family: ${(props) => props.theme.fonts.primary};
-  margin: ${(props) => props.theme.spacing.medium};
+  margin: 16px;
   color: ${(props) => props.theme.colors.text};
 `
 

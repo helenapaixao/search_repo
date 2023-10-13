@@ -7,7 +7,7 @@ export const Container = styled.button`
   border: none;
   cursor: pointer;
   border-radius: 5px;
-  font-size: ${(props) => props.theme.spacing.medium};
+  font-size: 16px;
   transition: background-color 0.3s;
 
   &:hover {
