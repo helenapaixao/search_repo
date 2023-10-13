@@ -1,10 +1,8 @@
-import * as path from "path";
-
 module.exports = {
   resolve: {
     fallback: {
+      path: false,
       path: require.resolve("path-browserify"),
-      crypto: require.resolve("crypto-browserify"),
     },
   },
 };

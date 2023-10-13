@@ -2,6 +2,9 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
+      "path": [
+        "./node_modules/path-browserify"
+      ],
       "@components/*": [
         "src/components/*",
         "src/screens/*",
