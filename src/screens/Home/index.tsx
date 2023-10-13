@@ -38,7 +38,9 @@ function Home() {
 
     try {
       const results = await searchRepositories(query);
+      // Set the fetched repository items as search results
       setSearchResults(results.items);
+      // Calculate the total number of pages based on the total count and items per page
       setTotalPages(Math.ceil(results.total_count / itemsPerPage));
 
       if (results.items.length === 0) {
