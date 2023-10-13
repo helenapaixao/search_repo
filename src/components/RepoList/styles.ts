@@ -16,7 +16,7 @@ export const RepoCardContainer = styled.div`
 
 export const Text = styled.p`
   font-size: 14px;
-  color: #586069;
+  color: ${(props) => props.theme.colors.primary};
 `
 
 export const TextRepo = styled.h2`
@@ -25,7 +25,7 @@ export const TextRepo = styled.h2`
   font-family: ${(props) => props.theme.fonts.primary};
   font-weight: bold;
   font-size: 18px;
-  margin-bottom: 8px;
+  margin-bottom: ${(props) => props.theme.spacing.small};
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
